@@ -4,7 +4,7 @@ document.getElementById('produtoForm').addEventListener('submit', async (e) => {
     const quantidade = document.getElementById('quantidade').value;
     const preco = document.getElementById('preco').value;
 
-    const response = await fetch('/api/produtos', {
+    const response = await fetch('/inventory/api/produtos', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -19,7 +19,7 @@ document.getElementById('produtoForm').addEventListener('submit', async (e) => {
 });
 
 const loadProdutos = async () => {
-    const response = await fetch('/api/produtos');
+    const response = await fetch('/inventory/api/produtos');
     const produtos = await response.json();
     const produtosList = document.getElementById('produtosList');
     produtosList.innerHTML = '';
@@ -33,7 +33,7 @@ const loadProdutos = async () => {
         removeButton.addEventListener('click', async () => {
             const quantidadeRemover = prompt('Digite a quantidade a ser removida:');
             if (quantidadeRemover !== null) {
-                const response = await fetch(`/api/produtos/${produto.id}`, {
+                const response = await fetch(`/inventory/api/produtos/${produto.id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
