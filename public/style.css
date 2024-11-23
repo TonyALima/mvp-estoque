@@ -16,6 +16,10 @@ button.remove {
     color: red;
 }
 
+button.view-log {
+    margin-top: 20px;
+}
+
 .login-form {
     margin-bottom: 20px;
 }
