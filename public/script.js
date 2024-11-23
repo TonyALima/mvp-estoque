@@ -1,3 +1,25 @@
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const response = await fetch('/user/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+    });
+
+    if (response.ok) {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('produtoForm').style.display = 'block';
+        loadProdutos();
+    } else {
+        alert('Login falhou. Verifique suas credenciais.');
+    }
+});
+
 document.getElementById('produtoForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const nome = document.getElementById('nome').value;
