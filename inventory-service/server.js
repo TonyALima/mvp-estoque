@@ -6,7 +6,6 @@ const app = express();
 const PORT = 3001;
 
 app.use(bodyParser.json());
-//app.use(express.static('../public'));
 
 // Carregar dados do estoque
 const loadData = () => {
@@ -81,5 +80,5 @@ app.delete('/inventory/api/produtos/:id', (req, res) => {
 
 // Iniciar o servidor
 app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
+    console.log(`Inventory service running on port ${PORT}`);
 });

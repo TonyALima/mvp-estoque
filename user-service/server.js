@@ -6,8 +6,6 @@ const app = express();
 const PORT = 3002;
 
 app.use(bodyParser.json());
-// app.use(express.static('../public'));
-
 
 // Carregar usuários do arquivo data.json
 const loadUsers = () => {
