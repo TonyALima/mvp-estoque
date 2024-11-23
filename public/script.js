@@ -31,10 +31,22 @@ const loadProdutos = async () => {
         removeButton.textContent = 'Remover';
         removeButton.classList.add('remove');
         removeButton.addEventListener('click', async () => {
-            await fetch(`/api/produtos/${produto.id}`, {
-                method: 'DELETE'
-            });
-            loadProdutos();
+            const quantidadeRemover = prompt('Digite a quantidade a ser removida:');
+            if (quantidadeRemover !== null) {
+                const response = await fetch(`/api/produtos/${produto.id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ quantidade: quantidadeRemover })
+                });
+                if (response.ok) {
+                    loadProdutos();
+                } else {
+                    const error = await response.json();
+                    alert(error.message);
+                }
+            }
         });
 
         li.appendChild(removeButton);
