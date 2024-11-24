@@ -7,21 +7,34 @@
     <title>Gerenciamento de Estoque</title>
 </head>
 <body>
-    <h1>Gerenciamento de Estoque</h1>
-    <form id="loginForm" class="login-form">
-        <input type="text" id="username" placeholder="Usuário" required>
-        <input type="password" id="password" placeholder="Senha" required>
-        <button type="submit">Login</button>
-    </form>
-    <form id="produtoForm" style="display: none;">
-        <input type="text" id="nome" placeholder="Nome do Produto" required>
-        <input type="number" id="quantidade" placeholder="Quantidade" required>
-        <input type="number" id="preco" placeholder="Preço" required>
-        <button type="submit">Cadastrar Produto</button>
-    </form>
-    <button id="viewLogButton" class="view-log" style="display: none;">Visualizar Log do Sistema</button>
-    <h2>Produtos em Estoque</h2>
-    <ul id="produtosList"></ul>
+    <nav style="width: 100%; background-color: #343a40; padding: 10px 0; display: flex; justify-content: space-between; align-items: center; color: white;">
+    <div style="margin-left: 20px; font-size: 24px;">Sistemas Tiabete</div>
+
+</nav>
+</nav>
+    </div>
+
+    <main class="main_content container">
+        <div class="content">
+            
+            <div class="box-artigo">
+                
+                <!-- Tela de Login -->
+                    
+                    <form class="formulario-login" id="loginForm">
+
+                        <h2>Ola! Bem vindo de volta!</h2>
+                        
+                            <input type="text" id ="username" name="usuario" placeholder="Usuário" required/>
+                            <input type="password" id="password" name="senha" placeholder="Senha" required/>
+                            <button type="submit">Entrar</button>
+                    </form>
+                <!-- Tela de Login -->
+            </div>
+        <div class="clear"></div>
+        </div>
+</main>
     <script src="script.js"></script>
 </body>
 </html>
+

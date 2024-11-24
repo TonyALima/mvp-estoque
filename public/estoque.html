@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Estoque</title>
+    <link rel="stylesheet" href="styleEstoque.css">
+    
+</head>
+<body>
+    <nav style="width: 100%; background-color: #343a40; padding: 10px 0; display: flex; justify-content: space-between; align-items: center; color: white;">
+        <div style="margin-left: 20px; font-size: 24px;">Sistemas Tiabete</div>
+        <div style="margin-right: 20px;">
+            <button id="viewLogButton" class="view-log" style="margin-right: 10px; padding: 10px 20px; border: none; border-radius: 4px; background-color: #007bff; color: white; cursor: pointer; font-size: 16px;">Visualizar Log do Sistema</button>
+            <button id="logoutButton" style="padding: 10px 20px; border: none; border-radius: 4px; background-color: #dc3545; color: white; cursor: pointer; font-size: 16px;">Sair</button>
+        </div>
+    </nav>
+    <h1>Gerenciamento de Estoque</h1>
+
+    <form id="produtoForm">
+        <input type="text" id="nome" placeholder="Nome do Produto" required>
+        <input type="number" id="quantidade" placeholder="Quantidade" required>
+        <input type="number" id="preco" placeholder="Preço" required>
+        <button type="submit">Cadastrar Produto</button>
+    </form>
+   
+    <h2>Produtos em Estoque</h2>
+    <ul id="produtosList"></ul>
+    <script src="scriptEstoque.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            loadProdutos();
+        });
+
+        document.getElementById('logoutButton').addEventListener('click', async () => {
+            window.location.href = 'index.html';
+        });
+
+                
+        document.getElementById('viewLogButton').addEventListener('click', async () => {
+            const response = await fetch('/inventory/api/logs');
+            console.log("passei aqui");
+            if (response.ok) {
+                const logs = await response.json();
+                logContent.textContent = logs.map(log => JSON.stringify(log)).join('\n'); // Print each log entry on a new line
+                logModal.style.display = 'block';
+            } else {
+                alert('Falha ao carregar o log do sistema.');
+            }
+        });
+
+        // Close the modal when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target == logModal) {
+                logModal.style.display = 'none';
+            }
+        });
+
+        // Create a modal for displaying logs
+        const logModal = document.createElement('div');
+        logModal.id = 'logModal';
+        logModal.style.display = 'none';
+        logModal.style.position = 'fixed';
+        logModal.style.zIndex = '1';
+        logModal.style.left = '0';
+        logModal.style.top = '0';
+        logModal.style.width = '100%';
+        logModal.style.height = '100%';
+        logModal.style.overflow = 'auto';
+        logModal.style.backgroundColor = 'rgba(0,0,0,0.4)';
+
+        const modalContent = document.createElement('div');
+        modalContent.style.backgroundColor = '#fefefe';
+        modalContent.style.margin = '15% auto';
+        modalContent.style.padding = '20px';
+        modalContent.style.border = '1px solid #888';
+        modalContent.style.width = '80%';
+
+        const closeModalButton = document.createElement('span');
+        closeModalButton.innerHTML = '&times;';
+        closeModalButton.style.color = '#aaa';
+        closeModalButton.style.float = 'right';
+        closeModalButton.style.fontSize = '28px';
+        closeModalButton.style.fontWeight = 'bold';
+        closeModalButton.style.cursor = 'pointer';
+        closeModalButton.addEventListener('click', () => {
+            logModal.style.display = 'none';
+        });
+
+        const logContent = document.createElement('pre');
+        logContent.id = 'logContent';
+        logContent.style.whiteSpace = 'pre-wrap';
+
+        modalContent.appendChild(closeModalButton);
+        modalContent.appendChild(logContent);
+        logModal.appendChild(modalContent);
+        document.body.appendChild(logModal);
+
+    </script>
+</body>
+</html>

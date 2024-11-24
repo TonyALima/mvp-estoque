@@ -1,33 +1,280 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+.content { float:left; width:92%; margin:0 4%; padding: 20px 0; }
+
+
+/*HEADER*/
+.main_header          { background:#ffffff; border-bottom:1px #f4f4f4 solid; z-index:1; padding: 0.5em 0em; }
+.main_header .content { float:left; padding:0px 0; }
+
+.fixed            { display:block; position:fixed; z-index:9;  }
+.main_header_logo { text-align:center; margin:auto; float:none; width:138px; }
+.main_header_logo img { height:69px; }
+
+/*PUBLICIDADE*/
+.boxBannerTopo   { padding:0em 0; background-color:transparent; }
+.bannerTopo      { width:100%; float:left; background-color:#fff; border:1px solid #e9ebee; }
+.bannerTopo .imagemBan   { margin:auto; max-width:900px; overflow:hidden; }
+.bannerTopo .imagemBan a { width:100%; height:100%; float:left; display:block; }
+
+/*Seu Código*/
+.section-seu-codigo          { padding:10px 0px; background-color:#f4f4f4; }
+.section-seu-codigo .content { float:left; padding:1em 0; }
+.section_title               { width: 100%; float:left; margin-bottom:1em; font-size:1.3em; font-weight: 300; text-align: center; border-bottom: 1px #eceaea solid; padding-bottom: 1em; }
+
+.box-artigo   { width:100%; float:left; background:transparent;  padding:1em; }
+
+/*Formulario de Login*/
+
+.formulario-login{
+
+  background:#F3F3F3;
+  margin:auto;
+  width: 50%;
+  max-width:400px;
+  padding:30px;
+  border:1px solid rgba(0,0,0,0.2);
+  border-bottom:5px solid rgb(1, 165, 23);
+  border-radius:15px;
+
 }
 
-form {
-    margin-bottom: 20px;
+.formulario-login h2 {
+  
+  text-align: center;
+  margin-bottom:20px;
+  color:rgba(0,0,0,0.5);
+
 }
 
-input {
-    margin-right: 10px;
+.formulario-login input{
+  
+  display:block;
+  width:100%;
+  background:#f3f3f3;
+  border:none;
+  margin:30px 0;
+  padding:10px;
+  border-bottom:1px solid rgba(0,0,0,0.2);
+  outline:none;
+
 }
 
-button.remove {
-    margin-left: 10px;
-    color: red;
+.formulario-login input[type="text"]:focus , [type="password"]:focus{
+  border-bottom:2px solid rgba(0,0,0,0.9);
+} 
+
+.formulario-login button[type="submit"]{
+
+  background:rgba(0, 124, 255);
+  opacity:0.9;
+  border:none;
+  border-radius:30px;
+  color:white;
+  font-size:1em; 
+  cursor:pointer;
+
 }
 
-button.view-log {
-    margin-top: 20px;
+.formulario-login button[type="submit"]:hover{
+  opacity:1;
+  transition:.2s;
 }
 
-.login-form {
-    margin-bottom: 20px;
+.formulario-login button[type="submit"]:active{
+  transform:scale(0.95);
 }
 
-.login-form input {
-    margin-right: 10px;
+.formulario-login a{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  color:rgba(0,0,0,0.5);
 }
 
-.login-form button {
-    margin-left: 10px;
+.formulario-login a:hover{
+ 
+  text-decoration:underline;
+  color:rgba(0,0,0,0.8);
+
 }
+
+@media(max-width:780px){
+
+  .formualario-login { width:75%; }
+
+}
+
+@media(max-width:480px){
+  
+  .formulario-login { width:95%; }
+
+}
+
+/*Formulario de Login*/
+
+
+/*Seu Download*/
+.section-seu-download          { padding:10px 0px; background-color:#f4f4f4; }
+.section-seu-download .content { float:left; padding:1em 0; }
+.box-download                  { width:100%; float:left; padding:1em; }
+.box-download p                { text-align: center; width: 100%; float: left; line-height: 30px; margin-bottom: 30px; }
+.box-download p .link          { text-decoration:underline; color:#01A517; }
+.box-download p .link:hover    { color:#202020; }
+.box-download p.italico        { font-style:italic; }
+
+@-webkit-keyframes down {
+  0%,
+  50%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  25%,
+  75% {
+    -webkit-transform: translateY(6px);
+    transform: translateY(6px);
+  }
+}
+
+@keyframes down {
+  0%,
+  50%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  25%,
+  75% {
+    -webkit-transform: translateY(6px);
+    transform: translateY(6px);
+  }
+}
+
+.btn {
+  
+    padding: 0.7em 1.3em;
+    cursor: pointer;
+    background: linear-gradient(90deg, #01A517 0%, #00D2BE 100%);
+    text-decoration: none;
+    font-weight:bold;
+    font-size:1.1em; 
+    color: #fff;
+    border-radius:8px;
+    transition:0.3s; 
+}
+
+.down {
+
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  padding-left: 2.7em;
+
+}
+
+.down:before {
+
+  content: "\e4a8";
+  position: absolute;
+  left: 1em;
+  padding: 0 1px;
+  font-family: untitled-font-1;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+
+}
+
+.down:hover:before, .down:focus:before, .down:active:before {
+  
+  -webkit-animation-name: down;
+  animation-name: down;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+
+}
+
+.box-anun  { width:100%; float:left; padding:1em; margin-top:10px; }
+
+/*Seu Download*/
+
+
+/*FOOTER*/
+.main_footer          { background-color:#01A517; color:#fff; font-size:0.875em; }
+.main_footer .content { padding:3em 0em; }
+
+.main_footer_copy       { background-color:transparent; width:100%; float:left; text-align:center; padding:1.5em 0em; }
+.main_footer_copy p     { font-family:'open_sanslight'; font-size:1em; color:#ffffff; height:20px; }
+.main_footer_copy .m-b-footer   { margin-bottom:0.5em; }
+.main_footer_copy .by   { font-size:0.96em; }
+.main_footer_copy .by i { font-size:0.96em; margin-right:3px; color:#e82626; }
+.main_footer_copy .by a { text-decoration:underline; color:#ffffff; }
+.main_footer_copy .by a:hover { color:#000000;}
+
+
+/*Começa o Responsivo*/
+
+/*480PX BREAKPOINT*/
+/*480 dividido por 16 = 30em*/
+@media (min-width:30em){
+
+.boxBannerTopo { padding:1em 0; }
+
+}
+
+/*600PX BREAKPOINT*/
+/*600 dividido por 16 = 37,5em*/
+@media (min-width:37em){
+
+
+} 
+
+/*768PX BREAKPOINT*/
+/*768 dividido por 16 = 48em*/
+@media (min-width:48em){
+
+
+} 
+
+/*960PX BREAKPOINT*/
+/*960 dividido por 16 = 60em*/
+@media (min-width:60em){
+
+ .section-seu-codigo          { padding:20px 0px; }
+ .section-seu-codigo .content { width:80%; padding:1em 0; margin:0 10%; }
+
+  .box-download { width:62%; float:left; }
+  .box-anun     { width:33%; float:right; margin-top:60px; }
+
+}
+
+/*1280PX BREAKPOINT*/
+/*1280 dividido por 16 = 80em*/
+@media (min-width:80em){
+
+ 
+}
+
+/*1366PX BREAKPOINT*/
+/*1366 dividido por 16 = 85,375em*/
+@media (min-width:85em){
+
+ .content  { width:80%; margin:0 10%; }
+
+}
+
+/*1600PX BREAKPOINT*/
+/*1600 dividido por 16 = 100em*/
+@media (min-width:100em){
+
+
+}
+/*Fecha o Responsivo*/
